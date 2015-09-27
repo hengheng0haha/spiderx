@@ -1,0 +1,2 @@
+var vid="(\d*) | var vid = '(\d*)
+var cid="(\d*) | var cid = '(\d*)

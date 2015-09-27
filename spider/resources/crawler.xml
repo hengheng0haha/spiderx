@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<sites>YOUKU,BILIBILI,ACFUN,SOHUTV,MYSOHUTV</sites>
+	<site host_url="http://www.youku.com" value="YOUKU" ch_name="优酷" url_format="http://v.">
+		<host onlyurl="true">
+            <thumbnail location="//div[@class='v-thumb']/img" get="src" id="alt"/>
+			<url location="//div[@class='v-link']/a[@target='video']" get="href" id="title"/>
+		</host>
+		<video>
+			<title way="html" location="//title"/>
+			<playcount way="json" key="vv" request="http://v.youku.com/QVideo/~ajax/getVideoPlayInfo?__rt=1&amp;__ro=&amp;id=%s&amp;sid=%s&amp;type=vv&amp;catid=%s" param="file:youku_playcount" isre="true"/>
+			<community way="json" key="total" request='http://comments.youku.com/comments/~ajax/getStatus.html?__ap={"videoid":%s,"userid":%s,"oldSid":-1}' param="file:youku_community" isre="true"/>
+			<upcount way="html" location="//span[@id='upVideoTimes']"/>
+			<downcount way="html" location="//span[@id='downVideoTimes']"/>
+		</video>
+	</site>
+	<site host_url="http://www.bilibili.com" value="BILIBILI" ch_name="哔哩哔哩" url_format="http://www.bilibili.com/av" snapshot="false">
+		<host request="http://www.bilibili.com/index/%s" param="file:bili_all">
+            <url way="json" key="aid"/>
+			<title way="json" key="title"/>
+			<thumbnail way="json" key="pic"/>
+			<playcount way="json" key="play"/>
+			<favorite way="json" key="favorites"/>
+            <community way="json" key="review"/>
+		</host>
+	</site>
+	<site host_url="http://www.acfun.tv" value="ACFUN" ch_name="AcFun" url_format="/v/">
+		<host onlyurl="true">
+			<url location="//a[@class='title']" get="href" id="href"/>
+			<thumbnail location="//a[@class='thumb']/img" get="src" id="parent:href"/>
+		</host>
+		<video request="http://www.acfun.tv/content_view.aspx?contentId=%s&amp;channelId=%s" param="file:acfun_sub" isre="true">
+			<title way="html" location="//title"/>
+			<playcount way="json" index="0"/>
+			<community way="json" index="1"/>
+			<favorite way="json" index="5"/>
+		</video>
+	</site>
+	<site host_url="http://tv.sohu.com" value="SOHUTV" ch_name="搜狐视频" url_format="http://tv." video_url_end="?ref=360">
+		<host onlyurl="true">
+			<url location="//a[@target='_blank']" get="href" id="href"/>
+			<thumbnail location="//a[@target='_blank']/img" get="src|lazysrc" id="parent:href"/>
+			<filter type="=" value="shtml"/>
+			<filter value="index"/>
+			<filter value="rank"/>
+		</host>
+		<video>
+			<title way="html" location="//title"/>
+			<playcount way="json" request="http://count.vrs.sohu.com/count/query.action?videoId=%s&amp;type=%s" param="file:sohu_vid" split="=:;" isre="true"/>
+			<community way="json" request="http://access.tv.sohu.com/reply/list/%s_%s_%s_0_10.js" param="file:sohu_comm" split="=:" key="allCount" isre="true"/>
+			<upcount way="json" request="http://score.my.tv.sohu.com/digg/get.do?vid=%s&amp;type=%s" param="file:sohu_vid" split="(:)" key="upCount" isre="true"/>
+			<downcount way="json" request="http://score.my.tv.sohu.com/digg/get.do?vid=%s&amp;type=%s" param="file:sohu_vid" split="(:)" key="downCount" isre="true"/>
+		</video>
+	</site>
+    <site host_url="http://tv.sohu.com" value="MYSOHUTV" ch_name="搜狐视频(My)" url_format="http://my.tv">
+		<host onlyurl="true">
+			<url location="//a[@target='_blank']" get="href" id="href"/>
+			<thumbnail location="//a[@target='_blank']/img" get="src|lazysrc" id="parent:href"/>
+			<filter type="=" value="shtml"/>
+			<filter value="index"/>
+			<filter value="rank"/>
+		</host>
+		<video>
+			<title way="html" location="//title"/>
+			<playcount way="json" request="http://vstat.v.blog.sohu.com/dostat.do?method=setVideoPlayCount&amp;v=%s" param="file:sohu_v" isre="true"/>
+			<community way="json" request="http://access.tv.sohu.com/reply/list/%s_%s_%s_0_10.js" param="file:sohu_comm" split="=:" key="allCount" isre="true"/>
+			<upcount way="json" request="http://score.my.tv.sohu.com/digg/get.do?vid=%s&amp;type=%s" param="file:sohu_vid" split="(:)" key="upCount" isre="true"/>
+			<downcount way="json" request="http://score.my.tv.sohu.com/digg/get.do?vid=%s&amp;type=%s" param="file:sohu_vid" split="(:)" key="downCount" isre="true"/>
+		</video>
+	</site>
+	<site host_url="http://www.iqiyi.com" value="IQIYI" ch_name="爱奇艺" url_format="http://www.iqiyi.com/v_" able="false">
+		<host>
+		</host>
+		<video>
+		</video>
+	</site>
+</root>

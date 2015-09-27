@@ -1,0 +1,3 @@
+var videoId = '(\d*)
+var showid="(\d*)
+var mainCateId = '(\d*)

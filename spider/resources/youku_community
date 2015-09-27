@@ -1,0 +1,2 @@
+var videoId = '(\d*)
+var video_owner = '(\d*)
