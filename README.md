@@ -5,7 +5,9 @@ This is my graduation project.
 It's developing!
 
 2015-2-19 v0.1.0: finish the core code.
+
 2015-2-20 v0.1.1: fix bugs, recode the 'crawler.xml', more stable
+
 2015-2-21 v0.1.2: fix bugs
 
 
