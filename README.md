@@ -1,5 +1,4 @@
 # spiderx
-<<<<<<< HEAD
 a automatic python crawler
 
 This is my graduation project.
@@ -12,10 +11,14 @@ It's developing!
 
 
 bug:
-    * some same result
-    * some times list out of range in job.py[line:177]
-    * unicode '\u200d' end of url, make crawler program error
-    * saving snapshots can't working in some web sites
+
+ * some same result
+
+ * some times list out of range in job.py[line:177]
+
+ * unicode '\u200d' end of url, make crawler program error
+
+ * saving snapshots can't working in some web sites
+    
 =======
 当年的毕业设计。
->>>>>>> f1c9164995a9f379dfc596c9613eb59712d9a954
