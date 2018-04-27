@@ -19,6 +19,5 @@ bug:
  * unicode '\u200d' end of url, make crawler program error
 
  * saving snapshots can't working in some web sites
-    
-=======
-当年的毕业设计。
+ 
+ 
